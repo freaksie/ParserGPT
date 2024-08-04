@@ -1,6 +1,6 @@
 # ParserGPT
 
-ParserGPT is a comprehensive package designed for generating and fine-tuning Llama models for building an event scheduling agent. This package includes three main components: `infer.py`, `Trainer.py`, and `Evaluate.py`, each responsible for different aspects of the model's lifecycle from training to inference and evaluation.
+ParserGPT is a comprehensive package designed for generating and fine-tuning Llama models for building an event scheduling agent to convert user requests into LISP-style actionable plans. This package includes three main components: `infer.py`, `Trainer.py`, and `Evaluate.py`, each responsible for different aspects of the model's lifecycle from training to inference and evaluation.
 
 ## Installation
 
