@@ -17,10 +17,10 @@ pip install -e .
 This class is responsible for generating the output based on the input text using a finetuned Llama model or the OpenAI API.
 
 #### Methods
-    * read_system_prompt(file_name): Reads the system prompt from a file.
-    * init(model, api_key): Initializes the class with the model and API key. Model should be in ParserGPT/assests/
-    * generate_text(system_prompt, user_prompt, model='gpt-3.5-turbo', max_tokens=4000): Generates text using the OpenAI API.
-    * parse(usr_prompt, sel): Parses the input text to generate the LISP plan. The sel argument determines the type of system used (i.e., Llama2, OpenAI, or Hybrid).
+    - read_system_prompt(file_name): Reads the system prompt from a file.
+    - init(model, api_key): Initializes the class with the model and API key. Model should be in ParserGPT/assests/
+    - generate_text(system_prompt, user_prompt, model='gpt-3.5-turbo', max_tokens=4000): Generates text using the OpenAI API.
+    - parse(usr_prompt, sel): Parses the input text to generate the LISP plan. The sel argument determines the type of system used (i.e., Llama2, OpenAI, or Hybrid).
 
 #### Example 
 ```
@@ -31,23 +31,23 @@ model.parse(user_prompt, sel='hybrid')
 ```
 
 #### Selector
-    * OpenAI : This will use gpt3.5-turbo-chat to convert the utterance into LISP plan. This contains system prompt with in-context learning. system prompt available in ParserGPT/assets/prompt_gpt.txt
+    - OpenAI : This will use gpt3.5-turbo-chat to convert the utterance into LISP plan. This contains system prompt with in-context learning. system prompt available in ParserGPT/assets/prompt_gpt.txt
 
-    * Llama2 : This will use the finetuned llama2 model (provided during intialization) to convert the utterance into LISP plan.
+    - Llama2 : This will use the finetuned llama2 model (provided during intialization) to convert the utterance into LISP plan.
 
-    * Hybrid : This will use the finetunned llama2 for atleat 80% requests and will delegate the request to openAI only if the confidence of generated text is less then 98%.
+    - Hybrid : This will use the finetunned llama2 for atleat 80% requests and will delegate the request to openAI only if the confidence of generated text is less then 98%.
 
 ### Trainer.py
 This class is responsible for fine-tuning the LLama2-chat model on a custom dataset.
 
 #### Methods:
-    * init(base_model, new_model, token, train_path, test_path): 
+    - init(base_model, new_model, token, train_path, test_path): 
         - base_model : from hugging-face usually `meta-llama/Llama-2-7b-chat-hf`
         - new_model : Name of the finetuned model. It will be saved in ParserGPT/assets
         - token : Login token of hugging-face to download the base model from hub
         - train_path : Name of json file used for finetunning. Keep the json file in ParserGPT/assets/data
         - test_path : Name of json file used to test finetunned model. Keep the json file in ParserGPT/assets/data
-    * start(): This method is responsible for fine-tuning the model.
+    - start(): This method is responsible for fine-tuning the model.
 
 #### Example 
 ```
@@ -66,8 +66,8 @@ trainer.start()
 This class evaluates the fine-tuned model on a test set and returns various performance metrics.
 
 #### Methods:
-    * init(model_name, api_key): Initializes the class with the model name and API key. Loads the test data created during `Trainer()` and metrics.
-    * evaluate(sel): Evaluates the model on the test set and returns the BLEU score, ROUGE score, and exact match score. The sel argument determines the type of system used (i.e., Llama2, OpenAI, or Hybrid).
+    - init(model_name, api_key): Initializes the class with the model name and API key. Loads the test data created during `Trainer()` and metrics.
+    - evaluate(sel): Evaluates the model on the test set and returns the BLEU score, ROUGE score, and exact match score. The sel argument determines the type of system used (i.e., Llama2, OpenAI, or Hybrid).
     
 #### Example:
 ```
@@ -77,17 +77,17 @@ Evaluate('llama-2-7b-chat-lora3').evaulate('llama2')
 
 
 ## Requirements
-    * Python 3.9+
-    * transformers
-    * datasets
-    * peft
-    * trl
-    * accelerate
-    * torch
-    * huggingface_hub
+    - Python 3.9+
+    - transformers
+    - datasets
+    - peft
+    - trl
+    - accelerate
+    - torch
+    - huggingface_hub
 
 
-## Work Samples
+## Generated samples
 
 1) Utterance : Ok , let 's see what 's coming up . Block out Feb 1 from 2 pm to 3 pm .
 
@@ -102,3 +102,11 @@ Generated Plan : Yield :output CreateCommitEventWrapper :event CreatePreflightEv
 3) Utterance : Tell me who James Potter 's manager is .
 
 Generated Plan : Yield :output FindManager :recipient Execute :intension refer extensionConstraint RecipientWithNameLike :constraint Constraint[Recipient] :name PersonName James Potter
+
+## Contact
+
+For any questions or inquiries, please contact Neel Vora:
+
+- GitHub: [https://github.com/freaksie](https://github.com/freaksie)
+- LinkedIn: [https://linkedin.com/in/neelvora27](https://linkedin.com/in/neelvora27)
+- Email: [nrvora@lbl.gov](mailto:nrvora@lbl.gov)
