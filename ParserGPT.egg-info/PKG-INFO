@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: ParserGPT
+Version: 0.0.1
+Summary: Parse the request into LISP plan
+Author: Neel Vora
+Author-email: NRVora@lbl.gov
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: transformers==4.43.3
+Requires-Dist: torch==2.4.0
+Requires-Dist: huggingface-hub==0.24.2
+Requires-Dist: datasets==2.20.0
+Requires-Dist: peft==0.12.0
+Requires-Dist: trl==0.9.6
+Requires-Dist: accelerate==0.33.0
+Requires-Dist: openai==1.37.1
+Requires-Dist: numpy==1.26.4
